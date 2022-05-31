@@ -1,0 +1,106 @@
+﻿<Window x:Class="JobApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobApplication"
+        mc:Ignorable="d"
+        Title="Online Job Apllication " Height="450" Width="450">
+    <Border Padding="10  ">
+        <StackPanel Orientation="Vertical">
+        <TextBlock Text="Lecturer Job Application "  
+                         HorizontalAlignment="Center"
+                         FontWeight="Bold"/>
+        <TextBlock Text="Personal Information "
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Foreground="Red"
+                        FontSize="12"/>
+            <!-- gGrid creation 3x2-->
+            <Grid Margin="0 10 0 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <!--First row -->
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Name" FontSize="10" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="0 0 10 0" Text="{Binding lecturerFirstName, Mode=TwoWay}" />
+                <TextBox Grid.Column="2" Grid.Row="0" Margin="0 0 10 0" Text="{Binding lecturerSurname, Mode=TwoWay}"/>
+             <!--Second Row -->
+                <TextBlock Grid.Column="0" Grid.Row="1"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" Text="First  Name " FontSize="8"/>
+                <TextBlock Grid.Column="2" Grid.Row="1" Text="Last Name " FontSize="8"/>
+                
+            </Grid>
+            <!--nEW gRID for email and combo box -->
+            <Grid Margin="0 10 0 0">
+                  <!--Creaes a 2x3-->
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+               
+              </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--First row -->
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Email " FontSize="10" FontWeight="Bold" Margin=" 0 0 10 0"/>
+                <TextBox Grid.Row="0"  Grid.ColumnSpan="2" Grid.RowSpan="1" Text="{Binding lecturerEmail,Mode=TwoWay}"  Margin="140 0 10 0  "  />
+                  
+                <!--sECOND roW -->
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Education  " FontSize="10" FontWeight="Bold" Margin=" 0 10 10 0"/>
+                <ComboBox SelectedIndex="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="1" Text= "{Binding lecturerDegree,Mode=TwoWay}" Margin="140 10 10 10">
+                <ComboBoxItem >Please choose </ComboBoxItem>
+                    <ComboBoxItem >Phd</ComboBoxItem>
+                    <ComboBoxItem >Masters</ComboBoxItem>
+                    <ComboBoxItem >Honours</ComboBoxItem>
+                    <ComboBoxItem >Degree</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            
+            <!--Checkboxes for Campus  -->
+            <TextBlock Text="Choose Campus " FontSize="10 " FontWeight="Bold" Margin="0 10 0 0 "/>
+             
+            <!--Grid for Checkboxes -->
+            <Grid Margin="0 10 0 0">
+                <!--Creaes a 2x3-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!--Firsst colounm checkboxes -->
+                <StackPanel Grid.Column="0">
+
+                    <CheckBox Content="Midrand " IsChecked="{Binding midrandLocation,Mode=TwoWay}" Margin=" 0 10 0 0"/>
+                    <CheckBox Content="Sandton" IsChecked="{Binding SadntonLocation,Mode=TwoWay}"  Margin=" 0 10 0 0"/>
+                    <CheckBox Content="Pretoria " IsChecked="{Binding PretoriaLocation,Mode=TwoWay}"  Margin=" 0 10 0 0"/>
+
+                </StackPanel>
+                <!--Second colounm checkboxes -->
+                <StackPanel Grid.Column="1">
+
+                    <CheckBox Content="Durban " IsChecked="{Binding DurbanLocation,Mode=TwoWay}"  Margin=" 0 10 0 0"/>
+                    <CheckBox Content="Port Elizabeth " IsChecked="{Binding PortElizabethCampusLocation,Mode=TwoWay}"  Margin=" 0 10 0 0"/>
+                    <CheckBox Content="East London " IsChecked="{Binding eastLondonLocation,Mode=TwoWay}"  Margin=" 0 10 0 0"/>
+
+                </StackPanel>
+
+            </Grid>
+
+
+            <Button Content="Submit " FontSize="10 " FontWeight="Bold" Width="150" Margin="0 30 0 0" Click="Button_Click"/>
+        </StackPanel>
+    </Border>
+</Window>
